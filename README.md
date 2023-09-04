@@ -50,6 +50,6 @@ This is a REST API using hexagonal architecture.
 
 1. Clone the repository
 2. Run `npm install`
-3. Start database using docker `docker-compose up -d`
+3. Start database using docker `docker compose up -d`
 4. Run `npm run dev`
 5. The server will be running on port specified by environment variable `PORT` or 4000 by default
