@@ -10,7 +10,7 @@
     "start:prod": "node dist/main.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sergio Alejandro Sanchez Ortiz",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.13",
