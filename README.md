@@ -7,6 +7,7 @@ Including:
 
 - P2P transactions
 - Charge account with a sandbox credit card
+- Get history of transactions
 
 This is a REST API using hexagonal architecture.
 
