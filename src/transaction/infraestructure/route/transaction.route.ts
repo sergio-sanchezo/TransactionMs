@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { TransactionUseCase } from "../../application/transactionUseCase";
 import { TransactionController } from "../controller/transaction.ctrl";
 import { SequelizeRepository } from "../repository/sequelize.repository";
+import { TransactionUseCase } from "../../application/transactionUseCase";
 
 const router = Router();
 

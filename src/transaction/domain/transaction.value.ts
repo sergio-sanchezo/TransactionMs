@@ -33,7 +33,7 @@ export class TransactionValue implements TransactionEntity {
   }) {
     this.id = uuid();
     this.amount = amount;
-    this.description = description || "default";
+    this.description = description ?? "default";
     this.date = date;
     this.type = type;
     this.receiverId = receiverId;
