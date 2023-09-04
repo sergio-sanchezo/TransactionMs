@@ -9,13 +9,14 @@ Including:
 - Charge account with a sandbox credit card
 - Get history of transactions
 
-This is a REST API using hexagonal architecture.
+This is a REST API using hexagonal architecture with the following technologies:.
 
 - nodejs
 - express
 - typescript
 - postgresSQL
 - sequelize
+- docker
 
 ## Project Structure
 

@@ -1,6 +1,6 @@
 import { TransactionEntity } from "../../domain/transaction.entity";
 import { TransactionRepository } from "../../domain/transaction.repository";
-import { TransactionModel } from "../model/transaction.schema";
+import { TransactionModel } from "../model/transaction.model";
 
 export class SequelizeRepository implements TransactionRepository {
   async listTransactions(): Promise<any> {
