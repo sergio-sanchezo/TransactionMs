@@ -1,4 +1,5 @@
 import { TransactionEntity } from "./transaction.entity";
+import { v4 as uuid } from "uuid";
 
 enum TransactionType {
   CHARGE = "CHARGE",
@@ -15,7 +16,6 @@ export class TransactionValue implements TransactionEntity {
   senderId: string;
 
   constructor({
-    id,
     amount,
     description,
     date,
@@ -31,7 +31,7 @@ export class TransactionValue implements TransactionEntity {
     receiverId: string;
     senderId: string;
   }) {
-    this.id = id;
+    this.id = uuid();
     this.amount = amount;
     this.description = description || "default";
     this.date = date;
