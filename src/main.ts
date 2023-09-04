@@ -5,8 +5,8 @@ import express, { Request, Response } from "express";
 import morgan from "morgan";
 import { config } from "./config";
 import cors from "cors";
-import transactionRoute from "./infraestructure/route/transaction.route";
-import { dbInit } from "./infraestructure/database/database";
+import { dbInit } from "./transaction/infraestructure/database/database";
+import transactionRouter from "./transaction/infraestructure/route/transaction.route";
 
 function bootstrap() {
   const app = express();
@@ -22,7 +22,7 @@ function bootstrap() {
 
   const { port } = config.server;
 
-  app.use("/transaction", transactionRoute);
+  app.use("/transaction", transactionRouter);
 
   dbInit().then();
 

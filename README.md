@@ -29,23 +29,24 @@ This is a REST API using hexagonal architecture with the following technologies:
 └── src
     ├── main.ts
     ├── config.ts
-    ├── application
-    │   └── transactionUseCase.ts
-    ├── domain
-    │   ├── transaction.entity.ts
-    │   ├── transaction.repository.ts
-    │   └── transaction.value.ts
-    └── infrastructure
-        ├── controller
-        │   └── transaction.ctrl.ts
-        ├── database
-        │   └── database.ts
-        ├── model
-        │   └── transaction.model.ts
-        ├── repository
-        │   └── sequelize.repository.ts
-        └── route
-           └── transaction.reporouteitory.ts
+    └── transaction
+        ├── application
+        │   └── transactionUseCase.ts
+        ├── domain
+        │   ├── transaction.entity.ts
+        │   ├── transaction.repository.ts
+        │   └── transaction.value.ts
+        └── infrastructure
+            ├── controller
+            │   └── transaction.ctrl.ts
+            ├── database
+            │   └── database.ts
+            ├── model
+            │   └── transaction.model.ts
+            ├── repository
+            │   └── sequelize.repository.ts
+            └── route
+                └── transaction.route.ts
 ```
 
 ## How to run
