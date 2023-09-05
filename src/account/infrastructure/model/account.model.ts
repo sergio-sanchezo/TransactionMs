@@ -11,4 +11,8 @@ export const AccountModel = sequelize.define("account", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  externalUserId: {
+    type: DataTypes.UUID,
+    allowNull: false,
+  }
 });
