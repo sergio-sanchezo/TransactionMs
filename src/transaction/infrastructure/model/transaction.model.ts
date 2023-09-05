@@ -20,15 +20,21 @@ export const TransactionModel = sequelize.define("transaction", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  receiverId: {
+  receiverAccountId: {
     type: DataTypes.UUID,
     allowNull: false,
   },
-  senderId: {
+  senderAccountId: {
     type: DataTypes.UUID,
     allowNull: false,
   },
 });
 
-AccountModel.hasMany(TransactionModel);
-TransactionModel.belongsTo(AccountModel);
+Transaction.belongsTo(Account, {
+  foreignKey: 'senderAccountId',
+});
+
+Transaction.belongsTo(Account, {
+  foreignKey: 'receiverAccountId',
+});
+
