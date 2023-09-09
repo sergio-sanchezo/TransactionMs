@@ -7,7 +7,6 @@ import { config } from "./config";
 import cors from "cors";
 import { dbInit } from "./database/database";
 import transactionRouter from "./transaction/infrastructure/route/transaction.route";
-import accountRouter from "./account/infrastructure/route/account.route";
 
 function bootstrap() {
   const app = express();
@@ -24,7 +23,6 @@ function bootstrap() {
   const { port } = config.server;
 
   app.use("/transaction", transactionRouter);
-  app.use("/account", accountRouter);
 
   dbInit().then();
 

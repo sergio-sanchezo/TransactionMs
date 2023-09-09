@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../../database/database";
-import { AccountModel } from "../../../account/infrastructure/model/account.model";
 
 export const TransactionModel = sequelize.define("transaction", {
   id: {
@@ -16,10 +15,6 @@ export const TransactionModel = sequelize.define("transaction", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   receiverId: {
     type: DataTypes.UUID,
     allowNull: false,
@@ -29,6 +24,3 @@ export const TransactionModel = sequelize.define("transaction", {
     allowNull: false,
   },
 });
-
-AccountModel.hasMany(TransactionModel);
-TransactionModel.belongsTo(AccountModel);

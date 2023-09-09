@@ -4,6 +4,7 @@ const sequelize = new Sequelize({
   dialect: "postgres",
   host: "localhost",
   username: "postgres",
+  // TODO: Add env for password
   password: "password",
 });
 
