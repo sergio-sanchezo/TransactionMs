@@ -19,7 +19,7 @@ export const TransactionModel = sequelize.define("transaction", {
     type: DataTypes.UUID,
     allowNull: false,
   },
-  senderId: {
+  senderAccountId: {
     type: DataTypes.UUID,
     allowNull: false,
   },
