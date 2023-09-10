@@ -68,6 +68,8 @@ This is a REST API using hexagonal architecture with the following technologies:
 - **PAYPAL_CLIENT_ID** = (Client id of the paypal account)
 - **PAYPAL_CLIENT_SECRET** = (Client secret of the paypal account)
 
+> To get the paypal client id and client secret, you need to create a sandbox account in [paypal developer](https://developer.paypal.com/developer/accounts/)
+
 ## Endpoints
 
 ### `GET /transactions` - Get all transactions
