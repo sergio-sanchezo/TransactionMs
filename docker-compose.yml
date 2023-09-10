@@ -20,7 +20,6 @@ services:
       - 4000:4000
     environment:
       - PORT=${PORT}
-      - NODE_ENV=${NODE_ENV}
       - DB_HOST=${DB_HOST}
       - DB_PASSWORD=${DB_PASSWORD}
       - PAYPAL_CLIENT_ID=${PAYPAL_CLIENT_ID}
