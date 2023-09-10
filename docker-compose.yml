@@ -2,16 +2,30 @@ version: "3"
 
 services:
   transactions_db:
-    container_name: db
+    container_name: ${DB_HOST}
     image: postgres:16rc1-alpine3.18
     restart: always
     volumes:
-      - transactions_db:/var/lib/postgresql
-    ports:
-      - 5432:5432
+      - transactions_db_volume:/var/lib/postgresql
     environment:
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+  backend:
+    depends_on:
+      - transactions_db
+    build: .
+    container_name: backend
+    restart: always
+    ports:
+      - 4000:4000
+    environment:
+      - PORT=${PORT}
+      - NODE_ENV=${NODE_ENV}
+      - DB_HOST=${DB_HOST}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - PAYPAL_CLIENT_ID=${PAYPAL_CLIENT_ID}
+      - PAYPAL_CLIENT_SECRET=${PAYPAL_CLIENT_SECRET}
 
 volumes:
-  transactions_db:
-    external: true
+  transactions_db_volume:
+    external: false
