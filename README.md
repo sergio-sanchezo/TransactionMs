@@ -54,9 +54,10 @@ This is a REST API using hexagonal architecture with the following technologies:
 ## How to run
 
 1. Clone the repository
-2. Run `docker compose up`
-3. The server will be running on port specified by environment variable `PORT` or 4000 by default
-4. Enjoy!
+2. Create a `.env` file based on `.env.example`
+3. Run `docker compose up`
+4. The server will be running on port specified by environment variable `PORT` or 4000 by default
+5. That's it!
 
 ### Environment variables
 
