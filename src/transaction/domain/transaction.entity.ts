@@ -1,8 +1,9 @@
 export interface TransactionEntity {
   id: string;
   amount: number;
-  description: string;
+  description?: string;
   receiverId: string;
   senderId: string;
-  date: Date;
+  type: string;
+  status: string;
 }

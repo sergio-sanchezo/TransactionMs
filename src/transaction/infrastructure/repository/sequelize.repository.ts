@@ -13,23 +13,30 @@ export class SequelizeRepository implements TransactionRepository {
     return transaction;
   }
 
-  async chargeTransaction(transaction: TransactionEntity): Promise<any> {
-    const transactionCreated = await TransactionModel.create({ transaction });
-    return transactionCreated;
-  }
-
-  async transferTransaction(transaction: TransactionEntity): Promise<any> {
-    const transactionCreated = await TransactionModel.create({ transaction });
+  async createTransaction(transaction: TransactionEntity): Promise<any> {
+    const transactionCreated = await TransactionModel.create({
+      ...transaction,
+    });
     return transactionCreated;
   }
 
   async updateTransaction(
     id: string,
-    transaction: TransactionEntity
+    transaction: Partial<TransactionEntity>
   ): Promise<any> {
-    const transactionUpdated = await TransactionModel.update(transaction, {
-      where: { id },
-    });
+    const transactionUpdated = await TransactionModel.update(
+      { ...transaction },
+      {
+        where: { id },
+      }
+    );
     return transactionUpdated;
+  }
+
+  async getTransactionsByReceiverId(userId: string): Promise<any> {
+    const transactions = await TransactionModel.findAll({
+      where: { receiverId: userId },
+    });
+    return transactions;
   }
 }

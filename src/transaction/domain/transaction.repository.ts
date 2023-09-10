@@ -3,12 +3,12 @@ import { TransactionEntity } from "./transaction.entity";
 export interface TransactionRepository {
   listTransactions(): Promise<TransactionEntity[] | null>;
   getTransactionById(id: string): Promise<TransactionEntity | null>;
-  chargeTransaction(transaction: TransactionEntity): Promise<TransactionEntity>;
-  transferTransaction(
-    transaction: TransactionEntity
-  ): Promise<TransactionEntity>;
+  createTransaction(transaction: TransactionEntity): Promise<TransactionEntity>;
   updateTransaction(
     id: string,
-    transaction: TransactionEntity
+    transaction: Partial<TransactionEntity>
   ): Promise<TransactionEntity | null>;
+  getTransactionsByReceiverId(
+    userId: string
+  ): Promise<TransactionEntity[] | null>;
 }

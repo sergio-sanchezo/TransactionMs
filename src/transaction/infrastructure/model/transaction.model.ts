@@ -1,9 +1,20 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../../database/database";
 
+export enum TransactionType {
+  P2P = "p2p",
+  CHARGE = "charge",
+}
+
+export enum TransactionStatus {
+  PENDING = "pending",
+  COMPLETED = "completed",
+  CANCELLED = "cancelled",
+}
+
 export const TransactionModel = sequelize.define("transaction", {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.STRING,
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4,
   },
@@ -13,14 +24,26 @@ export const TransactionModel = sequelize.define("transaction", {
   },
   description: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   receiverId: {
-    type: DataTypes.UUID,
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  senderAccountId: {
-    type: DataTypes.UUID,
+  senderId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  type: {
+    type: DataTypes.ENUM(TransactionType.P2P, TransactionType.CHARGE),
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.ENUM(
+      TransactionStatus.PENDING,
+      TransactionStatus.COMPLETED,
+      TransactionStatus.CANCELLED
+    ),
     allowNull: false,
   },
 });
