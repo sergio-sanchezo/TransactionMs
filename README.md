@@ -26,6 +26,7 @@ This is a REST API using hexagonal architecture with the following technologies:
 ├── Dockerfile
 ├── docker-compose.yml
 ├── .env.example
+├── .env
 └── src
     ├── main.ts
     ├── config.ts
