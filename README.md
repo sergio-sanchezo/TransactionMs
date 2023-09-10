@@ -86,6 +86,11 @@ body:
 }
 ```
 
+A p2p transaction will result in the next transaction:
+| id | amount | description | receiverId | senderId | type | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 100 | P2P transaction | 2 | 1 | p2p | completed |
+
 ### `POST /create-order` - Charge a user account with a sandbox paypal account
 
 body:
@@ -100,3 +105,18 @@ body:
 When the order is created, the user will be redirected to the paypal sandbox page to complete the payment. After that, the user will be redirected to an html page with a success message.
 
 Check the database to see the changes.
+
+Transactions are created with the following values in the charge account process:
+| id | amount | description | receiverId | senderId | type | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 100 | Charge account (null allowed) | 1 | paypal | charge | pending |
+
+After the payment is completed, the transaction is updated with the following values:
+| id | amount | description | receiverId | senderId | type | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 100 | Charge account (null allowed) | 1 | paypal | charge | completed |
+
+In case of cancelation, the transaction is updated with the following values:
+| id | amount | description | receiverId | senderId | type | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 100 | Charge account (null allowed) | 1 | paypal | charge | canceled |
