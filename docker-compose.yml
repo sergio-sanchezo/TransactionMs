@@ -4,6 +4,11 @@ services:
   transactions_db:
     container_name: ${DB_HOST}
     image: postgres:16rc1-alpine3.18
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 10s
+      retries: 120
     restart: always
     volumes:
       - transactions_db_volume:/var/lib/postgresql
@@ -12,7 +17,8 @@ services:
 
   backend:
     depends_on:
-      - transactions_db
+      transactions_db:
+        condition: service_healthy
     build: .
     container_name: backend
     restart: always
