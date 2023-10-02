@@ -24,7 +24,7 @@ function bootstrap() {
 
   const { port } = config.server;
 
-  app.use("/transaction", transactionRouter);
+  app.use("/transactions-api", transactionRouter);
 
   dbInit().then();
 

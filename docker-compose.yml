@@ -23,7 +23,7 @@ services:
     container_name: backend
     restart: always
     ports:
-      - 4000:4000
+      - 3002:3002
     environment:
       - PORT=${PORT}
       - DB_HOST=${DB_HOST}
