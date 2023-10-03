@@ -15,12 +15,12 @@ services:
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
 
-  backend:
+  transactions_ms:
     depends_on:
       transactions_db:
         condition: service_healthy
     build: .
-    container_name: backend
+    container_name: transactions_ms
     restart: always
     ports:
       - 3002:3002
