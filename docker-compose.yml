@@ -19,7 +19,8 @@ services:
     depends_on:
       transactions_db:
         condition: service_healthy
-    build: .
+    image: sesanchezo/transactions_ms
+    # build: .
     container_name: transactions_ms
     restart: always
     ports:

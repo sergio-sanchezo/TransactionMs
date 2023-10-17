@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import { TransactionEntity } from "../../domain/transaction.entity";
 import { TransactionRepository } from "../../domain/transaction.repository";
 import { TransactionModel } from "../model/transaction.model";
@@ -35,7 +36,9 @@ export class SequelizeRepository implements TransactionRepository {
 
   async getTransactionsByReceiverId(userId: string): Promise<any> {
     const transactions = await TransactionModel.findAll({
-      where: { receiverId: userId },
+      where: {
+        [Op.or]: [{ receiverId: userId }, { senderId: userId }],
+      },
     });
     return transactions;
   }
